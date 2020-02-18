@@ -11,7 +11,7 @@ function findArtist() {
         happi.getArtist(artistText).then(function(value){
             let output = '';
             value.profile.result.forEach(function(artistInfo){
-                 output += `<li class="list-group-item list-group-item-info">${artistInfo.artist}</li>`
+                 output += `<li class="list-group-item list-group-item-info">Artist Name:    ${artistInfo.artist},         ID:    ${artistInfo.id_artist}</li>`
             });
             document.getElementById('artists').innerHTML = output;
         }, function(reason){
