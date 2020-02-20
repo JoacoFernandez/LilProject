@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.min.css">
+    <style>
+        #loading{
+          display: none;
+        }
+      </style>
+
     <title>Who is the artist</title>
 </head>
 <body>
@@ -21,7 +27,11 @@
         <br>
         <button type="button" class="btn btn-info btn-lg" id="findButton">Find Artist</button>
         <br><br>
-        <div id="artists" class="card card-body"></div>
+        <div id="artists" class="card card-body">
+           <div id="loading">
+            <img src="img/loading.gif" id="gif" alt="">
+           </div>            
+        </div>
         <br>
         <button type="button" class="btn btn-info btn-lg" id="addButton">Add Artist</button>
         <br><br>
@@ -39,7 +49,7 @@
             <div class="startGame card card-body">
                 <h4>THE GAME</h4>
                 <p>After choosing 5 of your favourites artists, the game will display  some random lyrics of each artist. The pourpose of this is to assign each lyric to it's artist.</p>
-                <a href="game.html" class="btn btn-info btn-lg">Start Game</a>
+                <button class="btn btn-info btn-lg" id="startGame">Start Game</button>
 
             <div>
         </div>
@@ -49,7 +59,6 @@
     </footer>
 
     <script src="happi.js"></script>
-    <script src="ui.js"></script>
     <script src="app.js"></script>
     
 
