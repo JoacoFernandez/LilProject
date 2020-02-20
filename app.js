@@ -45,6 +45,12 @@ function selectArtist(e){
 document.getElementById('artists').addEventListener('click', selectArtist);
 function selectArtist(e){
     if (e.target.className.indexOf("active") === -1) {
+        // get all active current items querySelector for .active
+        // for each active item that you got, change the classNamme to list-group-item
+        document.querySelectorAll('.active').forEach(changeClassName);
+        function changeClassName(item) {
+            item.className = 'list-group-item'
+        } 
         e.target.className = 'selected list-group-item list-group-item-info active';
     } else {
         e.target.className = 'list-group-item'
@@ -52,6 +58,7 @@ function selectArtist(e){
 }
 const ul = document.querySelector('.collection');
 document.getElementById('addButton').addEventListener('click', addArtist);
+
 function addArtist() {
     const li = document.createElement('li');
     li.className = 'collection-item';
