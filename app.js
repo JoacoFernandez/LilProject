@@ -1,8 +1,9 @@
 //Init happi.dev
 const happi = new Happi;
-const ui = new UI;
 //Add the events
 document.querySelector('.btn').addEventListener('click', findArtist);
+
+var selectedArtists = []
 
 function findArtist() {
     const searchArtist = document.getElementById('searchArtist')
@@ -11,9 +12,11 @@ function findArtist() {
         happi.getArtist(artistText).then(function(value){
             let output = '';
             value.profile.result.forEach(function(artistInfo){
-                 output += `<li class="list-group-item " id="artistResults" >Artist Name:    ${artistInfo.artist},         ID:    ${artistInfo.id_artist}, <img src="${artistInfo.cover}" height="42" width="42"></li>`
+                 output += `<li class="list-group-item " id="${artistInfo.id_artist}" >Artist Name:     ${artistInfo.artist} <br><img src="${artistInfo.cover}" height="42" width="42"></li>`
             });
             document.getElementById('artists').innerHTML = output;
+            
+            
         }, function(reason){
 
         })
@@ -64,9 +67,35 @@ function addArtist() {
     li.className = 'collection-item';
     li.appendChild(document.querySelector('.active'));
     ul.appendChild(li);
+    
+    
+    
+    
+    
 }
 const artistLi = document.querySelector('.collection-item');
 document.getElementById('clearButton').addEventListener('click', clearArtists);
 function clearArtists() {
     ul.remove(artistLi);
+}
+
+document.getElementById('startGame').addEventListener('click', startGame);
+let selectedArtistss = []
+function startGame(){
+    ul.querySelectorAll('.active').forEach(function(element){
+        storeArtistInLocalStorage(element.id)
+
+    })
+    window.location.href = "game.html";
+}
+function storeArtistInLocalStorage(artist_id) {
+    let artists;
+    //Primero hay que ver si el localStorage esta vacio
+    if(localStorage.getItem('artists') === null){
+        artists = [];
+    } else {
+        artists = JSON.parse(localStorage.getItem('artists'));
+    }
+    artists.push(artist_id);
+    localStorage.setItem('artists', JSON.stringify(artists));
 }
