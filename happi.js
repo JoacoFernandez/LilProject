@@ -21,4 +21,13 @@ class Happi {
         }
     }
 
+    async getTracks(id_album, id_artist) {
+        const tracksResponse = await fetch(`https://api.happi.dev/v1/music/artists/${id_artist}/albums/${id_album}/tracks?apikey=${this.api_key}`)
+        const tracks = await tracksResponse.json();
+
+        return {
+            tracks
+        }
+    }
+
 }
