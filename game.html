@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.min.css">
+    <title>Start Game</title>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-info mb-3">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">LilProject</a>
+        </div>
+    </nav>
+    <div class="container searchContainer">
+        <div class="artistsContainer searchContainer">
+            <div class="chosenArtists card card-body">
+                <h3>Who is the artist?</h3>
+                <p class="lead">
+                    Choose one album for each artist
+                </p>
+                <div class="card card-body" id="artistsResult">
+                    <ul class="collection"></ul>
+                </div>
+                <br>
+                <button class="btn btn-info btn-lg" id="startGame">Spawn Albums</button>   
+            </div>
+    </div>
+    
+    
+    <script src="happi.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

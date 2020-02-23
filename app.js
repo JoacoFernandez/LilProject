@@ -82,7 +82,7 @@ function clearArtists() {
 document.getElementById('startGame').addEventListener('click', startGame);
 let selectedArtistss = []
 function startGame(){
-    ul.querySelectorAll('.active').forEach(function(element){
+    document.querySelectorAll("#artistsResult .list-group-item").forEach(function(element){
         storeArtistInLocalStorage(element.id)
 
     })
